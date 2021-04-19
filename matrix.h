@@ -175,7 +175,7 @@ bool Matrix2D::norm_row(int row, int col)
     for (size_t j = 0; j < numCols(); j++)
     {
         double element = get(row, j);
-        if (round(element*1000) == 0)   // prevent floating point errors
+        if (abs(element) < 0.00001)   // prevent floating point errors
             set(row, j, 0.0);
         set(row, j, (element/factor));
     }
